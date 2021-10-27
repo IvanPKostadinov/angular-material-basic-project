@@ -1,0 +1,24 @@
+$iconWidth: 56px;
+
+.sidenav-toggle {
+  display: none;
+
+  padding: 0;
+  margin: 8px;
+  min-width: $iconWidth;
+
+  // on screens smaller than 720px the display property is: flex (it will be shown)
+  @media (max-width: 720px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-icon {
+    font-size: 30px;
+    height: $iconWidth;
+    width: $iconWidth;
+    line-height: $iconWidth;
+    color: white;
+  }
+}
