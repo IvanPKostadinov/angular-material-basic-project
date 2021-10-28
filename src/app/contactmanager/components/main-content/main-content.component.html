@@ -3,6 +3,19 @@
 </div>
 <div *ngIf="user">
   <mat-card>
-    <h1>Main content</h1>
+    <mat-card-header>
+      <mat-icon mat-card-avatar svgIcon="{{ user.avatar }}"></mat-icon>
+      <mat-card-title>
+        <h2>{{ user.name }}</h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Birthday: {{ user.birthDate | date}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ user.bio }}
+      </p>
+    </mat-card-content>
   </mat-card>
 </div>
