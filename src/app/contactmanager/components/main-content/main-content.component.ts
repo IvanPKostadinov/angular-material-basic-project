@@ -9,14 +9,26 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./main-content.component.scss'],
 })
 export class MainContentComponent implements OnInit {
-  user?: User;
+  user?: User | null;
 
   constructor(private route: ActivatedRoute, private service: UserService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.user = this.service.userById(id);
+      let id = params['id'];
+      if (!id) {
+        id=1;
+      }
+      this.user = null;
+      this.service.users.subscribe(users => {
+        if (users.length == 0) {
+          return;
+        }
+
+        setTimeout(() => {
+          this.user = this.service.userById(id);
+        }, 500)
+      })
     })
   }
 }
