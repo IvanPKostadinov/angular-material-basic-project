@@ -9,7 +9,7 @@
     <!-- we use async pipe every time we bind to an Observable!!! -->
     <mat-nav-list>
       <mat-list-item *ngFor="let user of users | async">
-        <a matLine href="#">
+        <a matLine [routerLink]="['/contactmanager', user.id]">
           <mat-icon svgIcon="{{ user.avatar }}"></mat-icon>{{ user.name }}
         </a>
       </mat-list-item>
