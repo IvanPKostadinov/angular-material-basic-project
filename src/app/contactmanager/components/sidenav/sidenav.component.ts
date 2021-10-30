@@ -21,6 +21,7 @@ export class SidenavComponent implements OnInit {
 
   users!: Observable<User[]>;
   isDarkTheme = false;
+  changeDirection = false;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -32,6 +33,10 @@ export class SidenavComponent implements OnInit {
 
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDirection() {
+    this.changeDirection = !this.changeDirection;
   }
 
   ngOnInit(): void {
