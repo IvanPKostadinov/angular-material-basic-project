@@ -1,4 +1,4 @@
-<mat-sidenav-container class="app-sidenav-container">
+<mat-sidenav-container class="app-sidenav-container" [class.dark-theme]="isDarkTheme" [dir]="changeDirection ? 'rtl' : 'ltr'">
   <!-- [opened]="!isScreenSmall" -> the sidenav won't be open on small screens (phones, tablets) -->
   <!-- [mode]="!isScreenSmall ? 'over' : 'side'" -> the mode will change depending on the screen size (laptop, phone, etc.) -->
   <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall"
@@ -17,7 +17,9 @@
   </mat-sidenav>
 
   <div class="app-sidenav-content">
-    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <app-toolbar (toggleTheme)="toggleTheme()" (toggleSidenav)="sidenav.toggle()"
+      (toggleDirection)="toggleDirection()"
+    ></app-toolbar>
     <div class="wrapper">
       <router-outlet></router-outlet>
     </div>
